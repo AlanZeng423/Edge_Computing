@@ -65,10 +65,10 @@ with open("./data/connect.csv", mode="r", encoding="utf-8", newline="") as conne
     connect_csv = list(connect_reader)
 
 # 客户节点i与该边缘节点j的连通性情况Yij
-Y = [[0] * (M + 1) for i in range(N + 1)]
+Y = [[0] * (N + 1) for i in range(M + 1)] # (N+1)行*(M+1)列
 for i in range(1, len(connect_csv)):
     for j in range(1, len(connect_csv[0])):
-        Y[i][j] = int(connect_csv[i][j])
+        Y[j][i] = int(connect_csv[i][j])
 
 
 # test
