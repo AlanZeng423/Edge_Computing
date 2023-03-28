@@ -26,7 +26,7 @@ for i in range(1, len(demand_csv[0])):
     client_ID[i] = str(demand_csv[0][i])
 # 表示客户节点 i 在该时刻 t 的带宽需求Dit
 D = [[0] * (M + 1) for i in range(T + 1)]
-for t in range(1, len(demand_csv)):
+for t in range(1, T + 1):
     for i in range(1, M + 1):
         D[t][i] = int(demand_csv[t][i])
 

@@ -11,3 +11,4 @@ X = [[[0]*(T+1) for i in range(N+1)] for j in range(M+1)]
 W = [[0]*(T+1) for i in range(N+1)]
 # 第 j 个边缘节点的成本 Sj
 S = [0]*(N+1)
+
