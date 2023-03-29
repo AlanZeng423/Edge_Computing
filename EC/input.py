@@ -36,7 +36,7 @@ device_name,bandwith
 - 第 1 列：即 device_name 列，表示边缘节点 ID，唯一标识一个边缘节点。长度不超过 32 的字符串。
 - 第 2 列：即 bandwidth 列，表示对应边缘节点的带宽上限。非负整数，单位为 MB。
 - 边缘节点数： N ≤ 300 。
-- 带宽值：不超过 263 − 1MB 。
+- 带宽值：不超过 2^63 − 1MB 
 '''
 with open("./data/device.csv", mode="r", encoding="utf-8", newline="") as device_csv:
     device_reader = csv.reader(device_csv)
