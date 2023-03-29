@@ -47,5 +47,6 @@ def put(t, alledge, sortedge, X, C, D, Y):
         sortedge[i] = count
 
 
+
 for i in range(1, T + 1):
     put(i, alledge, sortedge, X, C, D, Y)
