@@ -1,5 +1,5 @@
 import csv
-
+import struct
 # 处理demand.csv文件
 '''
 demand.csv 
@@ -9,12 +9,13 @@ time,CB,CA,CE,CX...
     - 第 1 行：表示客户节点ID，唯一标识一个客户节点。长度不超过 10 的字符串，由大小写字母或数字组成。
     - 第 2 行 ~ 最后1行：表示客户节点在该时刻的带宽需求。非负整数，单位是 MB。
 - 客户节点数： M ≤ 50 。
-- 带宽值：不超过 2^63 ~ 1MB 。
+- 带宽值：不超过 2^63 ~ 1MB
 '''
 
 with open("./data/demand.csv", mode="r", encoding="utf-8", newline="") as demand_csv:
     demand_reader = csv.reader(demand_csv)
     demand_csv = list(demand_reader)
+
 
 # T:时刻数
 T = len(demand_csv) - 1
@@ -48,7 +49,7 @@ N = len(device_csv) - 1
 edge_ID = [0]*(N+1)
 # 对应边缘节点j的带宽上限Cj
 C = [0]*(N+1)
-for i in range(1,len(device_csv)):
+for i in range(1, len(device_csv)):
     edge_ID[i] = str(device_csv[i][0])
     C[i] = int(device_csv[i][1])
 
@@ -65,16 +66,16 @@ with open("./data/connect.csv", mode="r", encoding="utf-8", newline="") as conne
     connect_csv = list(connect_reader)
 
 # 客户节点i与该边缘节点j的连通性情况Yij
-Y = [[0] * (N + 1) for i in range(M + 1)] # (N+1)行*(M+1)列
+Y = [[0] * (N + 1) for i in range(M + 1)]  # (N+1)行*(M+1)列
 for i in range(1, len(connect_csv)):
     for j in range(1, len(connect_csv[0])):
         Y[j][i] = int(connect_csv[i][j])
 
 
 # test
-print(T)
-print(M,N)
-print(len(client_ID),len(edge_ID))
-print(len(D),len(D[0]))
-print(len(C))
-print(len(Y),len(Y[0]))
+# print(T)
+# print(M,N)
+# print(len(client_ID),len(edge_ID))
+# print(len(D),len(D[0]))
+# print(len(C))
+# print(len(Y),len(Y[0]))
